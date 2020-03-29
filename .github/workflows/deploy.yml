@@ -25,6 +25,6 @@ jobs:
       with:
         name: $GITHUB_USERNAME/$GITHUB_REPOSITORY
         registry: docker.pkg.github.com
-        username: ${{ $GITHUB_USERNAME }}
-        password: ${{ $GITHUB_TOKEN }}
+        username: $GITHUB_USERNAME
+        password: $GITHUB_TOKEN
         dockerfile: Dockerfile-prod
