@@ -23,8 +23,9 @@ jobs:
     - name: Publish to Github Packages Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: kenessajr/react-with-actions
+        name: kenessajr/react-with-actions/react-with-actions
         registry: docker.pkg.github.com
         username: $GITHUB_USERNAME
         password: $GITHUB_TOKEN
         dockerfile: Dockerfile-prod
+        tags: latest
