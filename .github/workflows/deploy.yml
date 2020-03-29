@@ -23,8 +23,19 @@ jobs:
     - name: Publish to Github Packages Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: $GITHUB_USERNAME/$GITHUB_REPOSITORY
+        name: kenessajr/react-with-actions/react-with-actions
         registry: docker.pkg.github.com
-        username: ${{ $GITHUB_USERNAME }}
-        password: ${{ $GITHUB_TOKEN }}
+        username: ${{ secrets.GITHUB_USERNAME }}
+        password: ${{ secrets.GITHUB_TOKEN }}
         dockerfile: Dockerfile-prod
+        tags: latest
+    - name: Deploy package to digitalocean
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+          docker stop $(docker ps -a -q)
+          docker run -dit -p 80:80 kenessajr/react-with-actions/react-with-actions:latest
