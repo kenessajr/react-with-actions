@@ -1,0 +1,30 @@
+name: CI & CD
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 12.10
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.10'
+    - name: Install yarn and run unittest
+      run: |
+        yarn
+        yarn test
+      env:
+        CI: true
+    - name: Publish to Github Packages Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: $GITHUB_USERNAME/$GITHUB_REPOSITORY
+        registry: docker.pkg.github.com
+        username: ${{ $GITHUB_USERNAME }}
+        password: ${{ $GITHUB_TOKEN }}
+        dockerfile: Dockerfile-prod
