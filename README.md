@@ -7,7 +7,7 @@
 
 At [Pindo](https://www.pindo.io/), recently we automated all our deployment processes by setting up a continuous development pipeline for our repositories. The automation approach reduces the number of errors that would otherwise occur because of the repetitive steps of Continuous Development (CD).
 
-In this tutorial, you will learn how to set up continuous deployment of a React app using tools like [Docker](https://www.docker.com/) and [Github Actions](https://github.com/features/actions). We will use an Ubuntu (18.04 LTS) droplet on [DigitalOcean](https://www.digitalocean.com/) to host our app.
+In this tutorial, you will learn how to set up a continuous deployment of a React app using tools like [Docker](https://www.docker.com/) and [Github Actions](https://github.com/features/actions). We will use an Ubuntu (18.04 LTS) droplet on [DigitalOcean](https://www.digitalocean.com/) to host our app.
 
 
 ## Prerequisites
