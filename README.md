@@ -5,7 +5,7 @@
 
 ## Introduction
 
-At [Pindo](https://www.pindo.io/), recently we automated all our deployment processes by setting up a continuous development pipeline for our repositories. The automation approach reduces the number of errors that would otherwise occur because of the repetitive steps of Continuous Integration (CI) and Continuous Development (CD).
+At [Pindo](https://www.pindo.io/), recently we automated all our deployment processes by setting up a continuous development pipeline for our repositories. The automation approach reduces the number of errors that would otherwise occur because of the repetitive steps of Continuous Development (CD).
 
 In this tutorial, you will learn how to set up continuous integration and continuous deployment of a React app using tools like [Docker](https://www.docker.com/) and [Github Actions](https://github.com/features/actions). We will use an Ubuntu (18.04 LTS) droplet on [DigitalOcean](https://www.digitalocean.com/) to host our app.
 
@@ -94,19 +94,19 @@ docker run -itd -p 80:80 --rm my-app:prod
 
 ### deploy.yml
 
-Let's create our first Continuous Integration (CI) action in our project.
+Let's create our first deployment action in our project.
 ```bash
 mkdir .github && cd .github && mkdir workflows && cd workflows && touch deploy.yml
 ``` 
 > The command above creates a workflow folder and a `deploy.yml` file. You can replace `yarn` with `npm` in the code below.
 
 ```yaml
-name: CI & CD
+name: build
 
 on:
-push:
-branches: 
-- master
+  push:
+    branches: 
+      - master
 
 jobs:
   build:
