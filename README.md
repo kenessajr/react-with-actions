@@ -1,3 +1,8 @@
+# react-with-actions
+
+![Continuous  Integration & Continuous Deployment](https://github.com/kenessajr/react-with-actions/workflows/CI%20&%20CD/badge.svg)
+![Twitter Follow](https://img.shields.io/twitter/follow/kenessajr?label=kenessajr&style=social)
+
 ## Introduction
 
 Recently we've been automating all our deployment processes at [Pindo](https://www.pindo.io/) by setting up a continuous development pipeline for our repositories. This helped us in reducing the number of errors that could have been taking place in the many repetitive steps of CI and CD.
@@ -267,3 +272,14 @@ Mine is running on [http://167.172.51.225/](http://167.172.51.225/)
 
 
 > All the codes can be found here [https://github.com/kenessajr/react-with-actions](https://github.com/kenessajr/react-with-actions)
+
+## Contributions
+Pull requests are welcome! I'am happy to review and accept pull requests for the following:
+- README.md Improvement
+- Github Actions workflow Improvement
+
+Ping [@kenessajr](https://twitter.com/kenessajr) on Twitter if you have any questions about how to contribute --I'm happy to help.
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
