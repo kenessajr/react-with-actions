@@ -1,6 +1,6 @@
 # react-with-actions
 
-![Continuous  Integration & Continuous Deployment](https://github.com/kenessajr/react-with-actions/workflows/CI%20&%20CD/badge.svg)
+![build](https://github.com/kenessajr/react-with-actions/workflows/build/badge.svg)
 ![Twitter Follow](https://img.shields.io/twitter/follow/kenessajr?label=kenessajr&style=social)
 
 ## Introduction
