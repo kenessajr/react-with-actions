@@ -109,35 +109,6 @@ branches:
 - master
 
 jobs:
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> bc33870651f4465ed1bda5b20d15d2fda66b96e4
-build:
-runs-on: ubuntu-latest
-steps:
-- uses: actions/checkout@v1
-- name: Use Node.js 13.10
-uses: actions/setup-node@v1
-with:
-node-version: '13.10'
-- name: Install yarn and run unittest
-run: |
-yarn
-yarn test
-env:
-CI: true
-- name: Publish to Github Packages Registry
-uses: elgohr/Publish-Docker-Github-Action@master
-with:
-name: my_github_username/my_repository_name/my_image_name
-registry: docker.pkg.github.com
-username: ${{ secrets.GITHUB_USERNAME }}
-password: ${{ secrets.GITHUB_TOKEN }}
-dockerfile: Dockerfile-prod
-tags: latest
-<<<<<<< HEAD
-=======
   build:
     runs-on: ubuntu-latest
     steps:
@@ -161,9 +132,6 @@ tags: latest
         password: ${{ secrets.GITHUB_TOKEN }}
         dockerfile: Dockerfile-prod
         tags: latest
->>>>>>> e46f933d19173fa51f3672c65fa331e22217ac90
-=======
->>>>>>> bc33870651f4465ed1bda5b20d15d2fda66b96e4
 ```
 > Note that Github Actions automatically provides you with GITHUB_TOKEN secrets. 
 
@@ -231,52 +199,52 @@ After configuring and resetting your droplet password let's now add your droplet
 You have succeeded in setting up your droplet secrets to your repository. You will now add another code block to deploy your package and run it in our droplet using [ssh-action](https://github.com/appleboy/ssh-action). It's GitHub Actions for executing remote ssh commands.
 
 ```yaml
-name: CI & CD
+name: build
 
 on:
-push:
-branches: 
-- master
+  push:
+    branches: 
+      - master
 
 jobs:
-build:
-runs-on: ubuntu-latest
-steps:
-- uses: actions/checkout@v1
-- name: Use Node.js 13.10
-uses: actions/setup-node@v1
-with:
-node-version: '13.10'
-- name: Install yarn and run unittest
-run: |
-yarn
-yarn test
-env:
-CI: true
-- name: Publish to Github Packages Registry
-uses: elgohr/Publish-Docker-Github-Action@master
-with:
-name: my_github_username/my_repository_name/my_image_name
-registry: docker.pkg.github.com
-username: ${{ secrets.GITHUB_USERNAME }}
-password: ${{ secrets.GITHUB_TOKEN }}
-dockerfile: Dockerfile-prod
-tags: latest
-- name: Deploy package to digitalocean
-uses: appleboy/ssh-action@master
-env:
-GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
-GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-with:
-host: ${{ secrets.HOST }}
-username: ${{ secrets.USERNAME }}
-password: ${{ secrets.PASSWORD }}
-port: ${{ secrets.PORT }}
-envs: GITHUB_USERNAME, GITHUB_TOKEN
-script: |
-docker stop $(docker ps -a -q)
-docker login docker.pkg.github.com -u $GITHUB_USERNAME -p $GITHUB_TOKEN
-docker run -dit -p 80:80 docker.pkg.github.com/my_github_username/my_repository_name/my_image_name:latest
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 13.10
+      uses: actions/setup-node@v1
+      with:
+        node-version: '13.10'
+    - name: Install yarn and run unittest
+      run: |
+        yarn
+        yarn test
+      env:
+        CI: true
+    - name: Publish to Github Packages Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: my_github_username/my_repository_name/my_image_name
+        registry: docker.pkg.github.com
+        username: ${{ secrets.GITHUB_USERNAME }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        dockerfile: Dockerfile-prod
+        tags: latest
+    - name: Deploy package to digitalocean
+      uses: appleboy/ssh-action@master
+      env:
+          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        envs: GITHUB_USERNAME, GITHUB_TOKEN
+        script: |
+          docker stop $(docker ps -a -q)
+          docker login docker.pkg.github.com -u $GITHUB_USERNAME -p $GITHUB_TOKEN
+          docker run -dit -p 80:80 docker.pkg.github.com/my_github_username/my_repository_name/my_image_name:latest
 ```
 > We previously published the app image to the Github Package Registry by signing in with the Github Credentials (GITHUB_USERNAME and GITHUB_TOKEN ). To pull the image from the registry we must login to archive so.  
 
