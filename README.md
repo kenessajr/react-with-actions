@@ -1,6 +1,6 @@
 # react-with-actions
 
-![build](https://github.com/kenessajr/react-with-actions/workflows/build/badge.svg)
+![build](https://github.com/kenessajr/react-with-actions/workflows/build/badge.svg?branch=master)
 ![Twitter Follow](https://img.shields.io/twitter/follow/kenessajr?label=kenessajr&style=social)
 
 ## Introduction
