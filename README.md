@@ -3,9 +3,9 @@
 ![build](https://github.com/kenessajr/react-with-actions/workflows/build/badge.svg?branch=master)
 ![Twitter Follow](https://img.shields.io/twitter/follow/kenessajr?label=kenessajr&style=social)
 
-At [Pindo](https://www.pindo.io/), recently we automated all our deployment processes by setting up a continuous development pipeline for our repositories. The automation approach reduces the number of errors that would otherwise occur because of the repetitive steps of Continuous Development (CD).
+At [Pindo](https://www.pindo.io/), recently we automated all our deployment processes by setting up continuous delivery pipelines for our repositories. The automation approach reduces the number of errors that would otherwise occur because of the repetitive steps of Continuous Delivery (CD).
 
-In this tutorial, you will learn how to set up a continuous deployment of a React app using tools like [Docker](https://www.docker.com/) and [Github Actions](https://github.com/features/actions). We will use an Ubuntu (18.04 LTS) droplet on [DigitalOcean](https://www.digitalocean.com/) to host our app.
+In this tutorial, you will learn how to set up a continuous delivery of a React app using tools like [Docker](https://www.docker.com/) and [Github Actions](https://github.com/features/actions). We will use an Ubuntu (18.04 LTS) droplet on [DigitalOcean](https://www.digitalocean.com/) to host our app.
 
 
 ## Prerequisites
@@ -54,7 +54,6 @@ docker run -it -p 3000:3000 my-app:dev
 ```
 
 Boom 💥! Our app is running on [http://localhost:3000](http://localhost:3000/)
-!['app-image'](https://pindo.ams3.digitaloceanspaces.com/Screen%20Shot%202020-03-02%20at%2021.45.05.png)
 
 Let's create another Dockerfile-prod to the project root. You will use this file in production. 
 
@@ -257,13 +256,12 @@ Mine is running on [http://167.172.51.225/](http://167.172.51.225/)
 
 > All the codes can be found here [https://github.com/kenessajr/react-with-actions](https://github.com/kenessajr/react-with-actions).
 
-
 ## Contributions
 Pull requests are welcome! I'am happy to review and accept pull requests for the following:
 - README.md Improvement
 - Github Actions workflow Improvement
 
-Ping [@kenessajr](https://twitter.com/kenessajr) on Twitter if you have any questions about how to contribute --I'm happy to help.
+Should you have any questions on how to contribute, please do not hesitate to reach out to me on [kenessajr](https://twitter.com/kenessajr) on twitter. --I'm happy to help.
 
 
 ## License
