@@ -157,7 +157,7 @@ If you click on actions, you will notice the start of the deployment workflow. W
 
 ![Alt actions](https://dev-to-uploads.s3.amazonaws.com/i/u44quiqpbfzd3btnvj5s.jpeg)
 
-You can find your docker image package in your repository on the package tab.
+You can find your published docker image in your repository on the package tab.
 
 ![Alt pack-det](https://dev-to-uploads.s3.amazonaws.com/i/g9ij5p8jnbv1yr4uu46l.png)
 
