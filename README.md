@@ -254,7 +254,7 @@ Congratulations 🎉! You can now access your react-app on your droplet IP_ADDRE
 
 Mine is running on [http://167.172.51.225/](http://167.172.51.225/)
 
-> All the codes can be found here [https://github.com/kenessajr/react-with-actions](https://github.com/kenessajr/react-with-actions).
+> All the codes can be found here https://github.com/kenessajr/react-with-actions. I also want you to keep in mind that pushing to master is a bad practice. I did it for this tutorial. You should create a branch and make a pull request. You can follow some of git best practices here.
 
 ## Contributions
 Pull requests are welcome! I'am happy to review and accept pull requests for the following:
