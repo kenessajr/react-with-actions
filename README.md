@@ -230,7 +230,7 @@ jobs:
         script: |
           docker stop $(docker ps -a -q)
           docker login docker.pkg.github.com -u $GITHUB_USERNAME -p $GITHUB_TOKEN
-		  docker pull docker.pkg.github.com/kenessajr/react-with-actions/react-with-actions:latest
+          docker pull docker.pkg.github.com/kenessajr/react-with-actions/react-with-actions:latest
           docker run -dit -p 80:80 docker.pkg.github.com/my_github_username/my_repository_name/my_image_name:latest
 ```
 > We previously published the app image to the Github Package Registry by signing in with the Github Credentials (GITHUB_USERNAME and GITHUB_TOKEN ). To pull the image from the registry we must login to archive so.  
