@@ -16,7 +16,7 @@ jobs:
         node-version: '13.10'
     - name: Install yarn and run unittest
       run: |
-        npm instal
+        npm install
         npm run build
       env:
         CI: true
