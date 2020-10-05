@@ -1,0 +1,31 @@
+name: build
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 13.10
+      uses: actions/setup-node@v1
+      with:
+        node-version: '13.10'
+    - name: Install yarn and run unittest
+      run: |
+        npm instal
+        npm run build
+      env:
+        CI: true
+    - name: Publish to Github Packages Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: pixellos/react-with-actions/react-with-actions
+        registry: docker.pkg.github.com
+        username: ${{ secrets.GITHUB_USERNAME }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        dockerfile: Dockerfile-prod
+        tags: latest
