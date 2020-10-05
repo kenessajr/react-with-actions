@@ -1,5 +1,4 @@
-FROM node:12.7-alpine
-
+FROM node:current-alpine3.10
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
