@@ -20,10 +20,10 @@ jobs:
         npm run build
       env:
         CI: true
-    - name: Publish to Github Packages Registry
-      uses: pixellos/Publish-Docker-Github-Action@master
+    - name: Publish Docker
+      uses: elgohr/Publish-Docker-Github-Action@2.22
       with:
-        name: pixellos/react-with-actions/react-with-actions
+        name: pixellos/react-with-actions
         registry: docker.pkg.github.com
         username: ${{ secrets.USERNAMEGH }}
         password: ${{ secrets.GITHUB_TOKEN }}
