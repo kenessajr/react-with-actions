@@ -2,9 +2,9 @@ FROM node:current-alpine3.10 as build
 
 WORKDIR /usr/src/app
 COPY package*.json ./
-RUN yarn cache clean && yarn --update-checksums
+
 COPY . ./
-RUN yarn && yarn build
+RUN npm && npm build
 
 # Stage - Production
 FROM nginx:1.17-alpine
