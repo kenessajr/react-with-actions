@@ -23,7 +23,7 @@ jobs:
     - name: Publish Docker
       uses: elgohr/Publish-Docker-Github-Action@2.22
       with:
-        name: pixellos/react-with-actions/ms_react
+        name: pixellos/agh.6.sr.to_react/ms_react
         registry: docker.pkg.github.com
         username: ${{ secrets.USERNAMEGH }}
         password: ${{ secrets.GITHUB_TOKEN }}
