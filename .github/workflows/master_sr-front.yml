@@ -22,8 +22,8 @@ jobs:
         password: ${{ secrets.AzureAppService_ContainerPassword_6d4bd4c437fd4f9bbffffa8bfd16e85c }}
 
     - run: |
-        docker build . -t docker.pkg.github.com/pixellos//${{ secrets.AzureAppService_ContainerUsername_6b98c26db5cd428e8283147e95708fa6 }}/agh.6.sr.to_react/ms_react:${{ github.sha }}
-        docker push docker.pkg.github.com/pixellos//${{ secrets.AzureAppService_ContainerUsername_6b98c26db5cd428e8283147e95708fa6 }}/agh.6.sr.to_react/ms_react:${{ github.sha }}
+        docker build . -t docker.pkg.github.com/pixellos/agh.6.sr.to_react/ms_react:${{ github.sha }}
+        docker push docker.pkg.github.com/pixellos/agh.6.sr.to_react/ms_react:${{ github.sha }}
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
@@ -31,4 +31,4 @@ jobs:
         app-name: 'sr-front'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_d41f499d55b54d3baa157102d18adf8a }}
-        images: 'docker.pkg.github.com/pixellos//${{ secrets.AzureAppService_ContainerUsername_6b98c26db5cd428e8283147e95708fa6 }}/agh.6.sr.to_react/ms_react:${{ github.sha }}'
+        images: 'docker.pkg.github.com/pixellos/agh.6.sr.to_react/ms_react:${{ github.sha }}'
