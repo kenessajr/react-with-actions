@@ -29,3 +29,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         dockerfile: Dockerfile-prod
         tags: latest
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'sr-front'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f43ef86f325d457ea0eaaec8cbd161d6 }}
+        images: 'docker.pkg.github.com/pixellos/agh.6.sr.to_react/pixellos/agh.6.sr.to_react/ms_react:latest'
